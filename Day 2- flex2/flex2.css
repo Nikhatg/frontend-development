@@ -1,0 +1,98 @@
+.flex-container {
+  flex-direction: column;
+  display: flex;
+  height: 600px;
+  padding: 20px;
+}
+.row {
+  display: flex;
+}
+.row .column {
+  border: 2px solid black;
+  display: flex;
+  margin: 5px;
+}
+.row1 {
+  margin: 5px;
+  height: 15%;
+  border: 2px solid black;
+}
+.row2 {
+  height: 60%;
+  display: flex;
+}
+.row3 {
+  height: 50%;
+}
+.row4 {
+  border-radius: 8px;
+  margin: 5px;
+  display: flex;
+  border: 2px solid black;
+  height: 15%;
+}
+.row2 .column1 {
+  flex: 1;
+}
+.row2 .column2 {
+  flex: 2;
+}
+.column2 .items .row {
+  gap: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.column2 .items .row div {
+  border: 2px solid black;
+}
+.column2 .items .row .i1 {
+  flex: 1;
+}
+.column2 .items .row .i2 {
+  flex: 1;
+}
+.column2 .items .row .i3 {
+  flex: 2;
+  border-radius: 8px;
+}
+.column2 .items .i4 {
+  display: flex;
+  flex-grow: 1;
+  border-radius: 8px;
+  margin: 10px;
+  border: 2px solid black;
+  height: 40%;
+}
+.items {
+  width: 100%;
+}
+.row4 div {
+  display: flex;
+  gap: 5px;
+  border: 2px solid black;
+}
+.row4 .i5 {
+  flex: 3;
+  border-radius: 8px;
+  margin: 10px;
+}
+.row4 .i6 {
+  flex: 1;
+  margin: 10px;
+  border-radius: 8px;
+}
+.row4 .i7,
+.row4 .i8 {
+  flex: 2;
+  margin: 10px;
+}
+
+.row4 .i9 {
+  flex: 2;
+  margin: 10px 0 10px 10px;
+}
+.row4 .i10 {
+  flex: 2;
+  margin: 10px 10px 10px 0;
+}
