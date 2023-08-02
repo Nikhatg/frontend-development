@@ -9,4 +9,7 @@ Flex 2:
 
 ![image (3)](https://github.com/Nikhatg/frontend-development/assets/44651083/05eb14d8-4b03-4d4c-8de3-c0bc7ac66920)
 
+Flex 3:
+
+![image (4)](https://github.com/Nikhatg/frontend-development/assets/44651083/463af480-4334-4e46-a2d1-a94fb1d5a59d)
 
