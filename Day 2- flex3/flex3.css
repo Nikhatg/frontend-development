@@ -1,0 +1,84 @@
+.flex-container {
+  display: flex;
+  height: 600px;
+  margin: 20px;
+  padding: 5px;
+  border: 2px solid black;
+  gap: 5px;
+}
+.flex-container .column1 {
+  border: 2px solid black;
+  display: flex;
+  flex: 1;
+}
+.flex-container .column2 {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.flex-container .column2 .row1 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 5px;
+}
+
+.flex-container .column2 .row2 {
+  display: flex;
+  flex-direction: row;
+  flex: 2;
+  gap: 5px;
+}
+.flex-container .column2 .row3 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 5px;
+}
+.flex-container .column2 .row1 div,
+.flex-container .column2 .row2 div,
+.flex-container .column2 .row3 div {
+  display: flex;
+  border: 2px solid black;
+}
+
+.row1 .item2,
+.row2 .item6,
+.row3 .item10 {
+  display: flex;
+  flex: 2;
+}
+.row1 .item3,
+.row2 .item7,
+.row3 .item11 {
+  display: flex;
+  flex: 3;
+}
+.row1 .item4,
+.row2 .item9 {
+  display: flex;
+  flex: 1;
+}
+.row1 .item5,
+.row2 .item8 {
+  display: flex;
+  flex: 3;
+}
+.row3 .item12 {
+  display: flex;
+  flex: 4;
+}
+.flex-container .column2 .row2 .item6 {
+  border: none;
+  gap: 5px;
+}
+
+.flex-container .column2 .row2 .item6 {
+  display: flex;
+  flex-direction: column;
+}
+.flex-container .column2 .row2 .item6 div {
+  border: 2px solid black;
+  flex: 1;
+}
