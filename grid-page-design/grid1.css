@@ -1,0 +1,116 @@
+.grid-container {
+  font-family: "Inter", sans-serif;
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    "header"
+    "sub-header"
+    "main"
+    "footer";
+  grid-template-rows: 1fr 2fr 6fr 3fr;
+  row-gap: 5px;
+  margin: 2% 0;
+}
+.grid-container .header div,
+.sub-header div {
+  display: grid;
+}
+.header {
+  text-align: center;
+  background-color: rgb(59, 56, 56);
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+  gap: 2px;
+  font-size: 0.5rem;
+}
+.header div,
+.sub-header div {
+  align-items: center;
+  font-size: 1rem;
+}
+.sub-header {
+  text-align: center;
+  color: rgb(59, 56, 56);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  font-weight: 700;
+}
+.main {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: rgb(59, 56, 56);
+}
+.main-txt {
+  align-items: center;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+}
+.small-txt {
+  color: rgb(136, 124, 124);
+  font-size: 0.75rem;
+  align-items: right;
+  letter-spacing: 0.2rem;
+}
+.btn-grp button {
+  color: white;
+  width: 10%;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+}
+.btn-grp .read-btn {
+  background-color: rgb(53, 178, 53);
+}
+.btn-grp .contact-btn {
+  background-color: gray;
+}
+.footer {
+  margin-top: 2%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: grey;
+}
+.fa-angle-down {
+  margin-left: 5px;
+}
+.header .item2 i,
+.header .item3 i,
+.header .item4 i {
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+.sub-header .item1 {
+  font-family: "Inter", sans-serif;
+  font-family: "Satisfy", cursive;
+  font-size: 2rem;
+}
+.sub-header .item8,
+.sub-header .item9 {
+  font-size: 2rem;
+}
+.footer .item {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.footer .item .sub {
+  margin-top: 10px;
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+.header .item5 {
+  background-color: rgb(53, 178, 53);
+  margin-right: 20%;
+  font-weight: 600;
+}
+.footer .item .fa {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: rgb(53, 178, 53);
+}
