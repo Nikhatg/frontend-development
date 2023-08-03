@@ -15,4 +15,4 @@ Flex 3:
 
 Grid Page design:
 
-https://cdn4.vectorstock.com/i/1000x1000/01/28/ui-design-website-template-for-business-vector-22900128.jpg
+![image (5)](https://github.com/Nikhatg/frontend-development/assets/44651083/8ad43d2f-4d51-4a77-88bd-850a7d5181cd)
