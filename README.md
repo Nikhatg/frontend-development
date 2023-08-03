@@ -13,3 +13,6 @@ Flex 3:
 
 ![image (4)](https://github.com/Nikhatg/frontend-development/assets/44651083/463af480-4334-4e46-a2d1-a94fb1d5a59d)
 
+Grid Page design:
+
+https://cdn4.vectorstock.com/i/1000x1000/01/28/ui-design-website-template-for-business-vector-22900128.jpg
