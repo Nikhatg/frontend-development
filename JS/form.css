@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rubik:wght@300;400;500;600;700&family=Satisfy&display=swap");
+
+body {
+  margin: 0;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  position: relative;
+}
+.form-element {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+span {
+  flex: 1;
+}
+.label {
+  flex: 1;
+}
+.submit-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  width: 100px;
+}
