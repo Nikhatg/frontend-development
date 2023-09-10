@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background-color: beige;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .acc-container {
+        width: 80vw;
+      }
+      .acc-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 0 15px rgb(0 0 0 /10%);
+        padding: 10px 25px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+      .acc-item .acc-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: 5px;
+      }
+      .acc-item .acc-header .btn-cnt {
+        color: goldenrod;
+      }
+
+      .acc-item .acc-body {
+        font-size: 15px;
+        border-block-start: solid 1px #eee;
+      }
+      .btn {
+        cursor: pointer;
+      }
+
+      .btn-minus,
+      .acc-body {
+        display: none;
+      }
+
+      .acc-item.active .acc-body,
+      .acc-item.active .btn-minus {
+        display: block;
+      }
+      .acc-item.active .btn-plus {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="acc-container">
+      <div class="acc-cnt">
+        <div class="title">
+          <h2>Accordion Section</h2>
+        </div>
+        <article class="acc-item">
+          <div class="acc-header">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="btn-cnt">
+              <div class="btn btn-plus">
+                <div class="fa fa-plus-square-o"></div>
+              </div>
+              <div class="btn btn-minus">
+                <div class="fa fa-minus-square-o"></div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis maiores sapiente, ipsum non soluta ea vitae assumenda
+              quas sunt corporis!
+            </p>
+          </div>
+        </article>
+        <article class="acc-item">
+          <div class="acc-header">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="btn-cnt">
+              <div class="btn btn-plus">
+                <div class="fa fa-plus-square-o"></div>
+              </div>
+              <div class="btn btn-minus">
+                <div class="fa fa-minus-square-o"></div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis maiores sapiente, ipsum non soluta ea vitae assumenda
+              quas sunt corporis!
+            </p>
+          </div>
+        </article>
+        <article class="acc-item">
+          <div class="acc-header">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="btn-cnt">
+              <div class="btn btn-plus">
+                <div class="fa fa-plus-square-o"></div>
+              </div>
+              <div class="btn btn-minus">
+                <div class="fa fa-minus-square-o"></div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis maiores sapiente, ipsum non soluta ea vitae assumenda
+              quas sunt corporis!
+            </p>
+          </div>
+        </article>
+        <article class="acc-item">
+          <div class="acc-header">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <div class="btn-cnt">
+              <div class="btn btn-plus">
+                <div class="fa fa-plus-square-o"></div>
+              </div>
+              <div class="btn btn-minus">
+                <div class="fa fa-minus-square-o"></div>
+              </div>
+            </div>
+          </div>
+          <div class="acc-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis maiores sapiente, ipsum non soluta ea vitae assumenda
+              quas sunt corporis!
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <script>
+      var buttons = document.querySelectorAll(".btn-cnt");
+
+      buttons.forEach((button) => {
+        let accHeader = button.parentElement.parentElement;
+        accHeader.addEventListener("click", function (event) {
+          document.querySelectorAll(".acc-item").forEach((item) => {
+            if (item.classList.contains("active")) {
+              item.classList.remove("active");
+            }
+          });
+
+          if (!accHeader.classList.contains("active")) {
+            accHeader.classList.add("active");
+          } else {
+            accHeader.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
