@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      #color-box {
+        height: 300px;
+        margin: auto;
+        width: 30%;
+        border: 2px solid black;
+      }
+      .btn,
+      #selected-color {
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="selected-color"></h1>
+      <div id="color-box"></div>
+      <button class="btn">Change Color</button>
+      <!-- <input type="text" class="color-input" placeholder="Enter color" /> -->
+    </div>
+
+    <script>
+      var colorArr = ["red", "green", "blue", "lime", "pink", "grey", "black"];
+      var color = document
+        .querySelector(".btn")
+        .addEventListener("click", (e) => {
+          var randomColor =
+            colorArr[Math.round(Math.random() * colorArr.length)];
+          console.log(randomColor);
+          document.querySelector("#color-box").style.backgroundColor =
+            randomColor;
+
+          document.querySelector("#selected-color").innerHTML = randomColor;
+        });
+    </script>
+  </body>
+</html>
