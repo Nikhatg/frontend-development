@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <style>
+      body {
+        font-family: "Rubik", sans-serif;
+        color: #333;
+        margin: 0;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 20px;
+        padding: 20px;
+      }
+      .filter-col {
+        display: flex;
+        flex-direction: column;
+      }
+      .products-details {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .prod-img {
+        width: 100%;
+        max-height: 200px;
+        margin-bottom: 5px;
+      }
+      .prod-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="filter-col">
+        <div class="brands"><h2>Brands</h2></div>
+        <div class="catogries"><h2>Catogries</h2></div>
+        <div class="prices">
+          <h2>Prices</h2>
+          <!-- <input type="range" id="priceRange" /> -->
+        </div>
+      </div>
+      <div class="products-details"></div>
+    </div>
+    <script>
+      var htmlData = "";
+      async function getProducts() {
+        const products = await fetch("https://dummyjson.com/products").then(
+          (res) => res.json().then()
+        );
+
+        const brandFilters = [];
+        const catFilters = [];
+        const priceFilters = [];
+
+        products.products.forEach((product) => {
+          brandFilters.push(product.brand);
+          catFilters.push(product.category);
+          priceFilters.push(product.price);
+
+          const htmlData = `<div class="product-card">
+            <img src='${product.thumbnail}' class="prod-img"></img>
+            <div class="prod-title">${product.title}</div>
+            <div class="prod-brand">Brand: ${product.brand}</div>
+            <div class="prod-cat">Catogry: ${product.category}</div>
+            <div class="prod-desc">${product.description}</div>
+            </div>`;
+          document.querySelector(".products-details").innerHTML += htmlData;
+        });
+
+        getBrandFilter(brandFilters);
+        getCatFilter(catFilters);
+        getPriceFilter(priceFilters);
+      }
+      getProducts();
+
+      function getBrandFilter(brands) {
+        filterCheck = "";
+        let brandfilter = [...new Set(brands)];
+        brandfilter.forEach((filter) => {
+          filterCheck = `<div class="product-filter">
+            <input type="checkbox"/>
+            <span>${filter}</span>
+            </div>`;
+          document.querySelector(".brands").innerHTML += filterCheck;
+        });
+      }
+
+      function getCatFilter(catogries) {
+        let catFilters = [...new Set(catogries)];
+        catFilters.forEach((filter) => {
+          var filterCheck = `<div class="product-filter">
+            <input type="checkbox"/>
+            <span>${filter}</span>
+            </div>`;
+
+          document.querySelector(".catogries").innerHTML += filterCheck;
+        });
+      }
+
+      function getPriceFilter(prices) {
+        let priceFilters = [...new Set(prices)];
+        priceFilters.forEach((filter) => {
+          var filterCheck = `<div class="product-filter">
+              <input type="checkbox"/>
+              <span>${filter}</span>
+              </div>`;
+
+          document.querySelector(".prices").innerHTML += filterCheck;
+        });
+      }
+
+      // function getFilter(filterName) {
+      //   filterName.forEach((filter) => {
+      //     var filterCheck = `<div class="product-filter">
+      //       <input type="checkbox"/>
+      //       <span>${filter}</span>
+      //       </div>`;
+
+      //     document.querySelector(".filter-col").innerHTML += filterCheck;
+      //   });
+      // }
+    </script>
+  </body>
+</html>
