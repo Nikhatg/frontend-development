@@ -35,7 +35,7 @@
         font-weight: bold;
         margin-bottom: 5px;
       }
-      .product-filter a {
+      .product-filter span {
         cursor: pointer;
       }
     </style>
@@ -54,6 +54,7 @@
     </div>
     <script>
       var htmlData = "";
+      let allProducts = "";
       async function getProducts() {
         const products = await fetch("https://dummyjson.com/products").then(
           (res) => res.json().then()
@@ -62,7 +63,8 @@
         const brandFilters = [];
         const catFilters = [];
         const priceFilters = [];
-
+        allProducts = products.products;
+        // let catgoryLinks;
         products.products.forEach((product) => {
           brandFilters.push(product.brand);
           catFilters.push(product.category);
@@ -73,40 +75,73 @@
 
         getBrandFilter(brandFilters);
         getCatFilter(catFilters);
-        getPriceFilter(priceFilters);
+        getPriceSorted(priceFilters);
       }
       getProducts();
 
       function getBrandFilter(brands) {
-        filterCheck = "";
-        let brandfilter = [...new Set(brands)];
-        brandfilter.forEach((filter) => {
-          filterCheck = `<div class="product-filter">
-            <a id='${filter}' onclick=showItem('${filter}')>${filter}</a>
-            </div>`;
-          document.querySelector(".brands").innerHTML += filterCheck;
+        let brandList = brands.filter(
+          (item, index) => brands.indexOf(item) === index
+        );
+        let html = "";
+        brandList.forEach((brand) => {
+          html = `<div class="product-filter"><span id="${brand}" href="#" class="brandCat">${brand}</span></div>`;
+          document.querySelector(".brands").innerHTML += html;
         });
+        let brandLinks = document.querySelectorAll(".brandCat");
+        bindEvent(brandLinks, "brand");
       }
 
       function getCatFilter(catogries) {
-        let catFilters = [...new Set(catogries)];
-        catFilters.forEach((filter) => {
-          var filterCheck = `<div class="product-filter">
-            <a id='${filter}'>${filter}</a>
-            </div>`;
+        let catList = catogries.filter(
+          (item, index) => catogries.indexOf(item) === index
+        );
+        let html = "";
 
-          document.querySelector(".catogries").innerHTML += filterCheck;
+        catList.forEach((category) => {
+          html = `<div class="product-filter"><span id="${category}" href="#" class="category">${category}</span></div>`;
+          document.querySelector(".catogries").innerHTML += html;
+        });
+
+        let catgoryLinks = document.querySelectorAll(".category");
+        bindEvent(catgoryLinks, "catogries");
+      }
+
+      function bindEvent(catgoryLinks, catType) {
+        catgoryLinks.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            filteredList(this.textContent, catType);
+          });
         });
       }
 
-      function getPriceFilter(prices) {
-        let priceFilters = [...new Set(prices)];
+      function getPriceSorted(prices) {
+        let priceFilters = prices.sort(function (a, b) {
+          return a - b;
+        });
+        console.log(priceFilters);
         priceFilters.forEach((filter) => {
           var filterCheck = `<div class="product-filter">
               <a>${filter}</a>
               </div>`;
 
           document.querySelector(".prices").innerHTML += filterCheck;
+        });
+      }
+
+      function filteredList(catogry, catType) {
+        document.querySelector(".products-details").innerHTML = "";
+        allProducts.forEach((item) => {
+          if (catType == "brand") {
+            if (item.brand == catogry) {
+              showItems(item);
+            }
+          } else if (catType == "catogries") {
+            if (item.category == catogry) {
+              showItems(item);
+            }
+          }
         });
       }
 
@@ -120,17 +155,6 @@
             </div>`;
         document.querySelector(".products-details").innerHTML += htmlData;
       }
-
-      // function getFilter(filterName) {
-      //   filterName.forEach((filter) => {
-      //     var filterCheck = `<div class="product-filter">
-      //       <input type="checkbox"/>
-      //       <span>${filter}</span>
-      //       </div>`;
-
-      //     document.querySelector(".filter-col").innerHTML += filterCheck;
-      //   });
-      // }
     </script>
   </body>
 </html>
