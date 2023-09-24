@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <style>
+      .container {
+        width: 100%;
+        padding: 20px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+      }
+      .btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 50px;
+      }
+      .btns button {
+        cursor: pointer;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image-slider-container">
+        <img id="currentImg" src="./images/img1.png" alt="Image1" />
+        <div class="btns">
+          <button id="prevBtn">Previous</button>
+          <button id="nextBtn">Next</button>
+        </div>
+
+        <!-- <img class="img2" src="./images/img2.jpg" alt="Image1" />
+      <img class="img3" src="./images/img3.jpg" alt="Image1" />
+      <img class="img4" src="./images/img4.jpg" alt="Image1" />
+      <img class="img5" src="./images/img5.jpg" alt="Image1" />
+      <img class="img6" src="./images/img6.jpg" alt="Image1" /> -->
+      </div>
+    </div>
+    <script>
+      console.log("slider");
+      let images = ["img1.png", "img2.jpg", "img3.jpg", "img4.jpg", "img6.jpg"];
+      let index = 0;
+
+      let slides = document.getElementsByClassName("image-slider-container");
+      let nextBtn = document.getElementById("nextBtn");
+      let prevBtn = document.getElementById("prevBtn");
+      let currentImg = document.getElementById("currentImg");
+
+      if (index == 0) {
+        prevBtn.disabled = true;
+      }
+
+      nextBtn.addEventListener("click", () => {
+        if (index < images.length - 1) {
+          index = index + 1;
+          update(index);
+        }
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (index != 0) {
+          index = index - 1;
+          update(index);
+        }
+      });
+      function update(index) {
+        if (index > 0) {
+          prevBtn.disabled = false;
+        }
+        currentImg.src = "./images/" + images[index];
+      }
+    </script>
+  </body>
+</html>

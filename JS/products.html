@@ -35,6 +35,9 @@
         font-weight: bold;
         margin-bottom: 5px;
       }
+      .product-filter a {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -65,14 +68,7 @@
           catFilters.push(product.category);
           priceFilters.push(product.price);
 
-          const htmlData = `<div class="product-card">
-            <img src='${product.thumbnail}' class="prod-img"></img>
-            <div class="prod-title">${product.title}</div>
-            <div class="prod-brand">Brand: ${product.brand}</div>
-            <div class="prod-cat">Catogry: ${product.category}</div>
-            <div class="prod-desc">${product.description}</div>
-            </div>`;
-          document.querySelector(".products-details").innerHTML += htmlData;
+          showItems(product);
         });
 
         getBrandFilter(brandFilters);
@@ -86,8 +82,7 @@
         let brandfilter = [...new Set(brands)];
         brandfilter.forEach((filter) => {
           filterCheck = `<div class="product-filter">
-            <input type="checkbox"/>
-            <span>${filter}</span>
+            <a id='${filter}' onclick=showItem('${filter}')>${filter}</a>
             </div>`;
           document.querySelector(".brands").innerHTML += filterCheck;
         });
@@ -97,8 +92,7 @@
         let catFilters = [...new Set(catogries)];
         catFilters.forEach((filter) => {
           var filterCheck = `<div class="product-filter">
-            <input type="checkbox"/>
-            <span>${filter}</span>
+            <a id='${filter}'>${filter}</a>
             </div>`;
 
           document.querySelector(".catogries").innerHTML += filterCheck;
@@ -109,12 +103,22 @@
         let priceFilters = [...new Set(prices)];
         priceFilters.forEach((filter) => {
           var filterCheck = `<div class="product-filter">
-              <input type="checkbox"/>
-              <span>${filter}</span>
+              <a>${filter}</a>
               </div>`;
 
           document.querySelector(".prices").innerHTML += filterCheck;
         });
+      }
+
+      function showItems(product) {
+        const htmlData = `<div class="product-card">
+            <img src='${product.thumbnail}' class="prod-img"></img>
+            <div class="prod-title">${product.title}</div>
+            <div class="prod-brand">Brand: ${product.brand}</div>
+            <div class="prod-cat">Catogry: ${product.category}</div>
+            <div class="prod-desc">${product.description}</div>
+            </div>`;
+        document.querySelector(".products-details").innerHTML += htmlData;
       }
 
       // function getFilter(filterName) {
