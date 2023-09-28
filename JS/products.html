@@ -107,26 +107,25 @@
         bindEvent(catgoryLinks, "catogries");
       }
 
-      function bindEvent(catgoryLinks, catType) {
-        catgoryLinks.forEach((button) => {
-          button.addEventListener("click", function (e) {
-            e.preventDefault();
-            filteredList(this.textContent, catType);
-          });
-        });
-      }
-
       function getPriceSorted(prices) {
         let priceFilters = prices.sort(function (a, b) {
           return a - b;
         });
-        console.log(priceFilters);
         priceFilters.forEach((filter) => {
           var filterCheck = `<div class="product-filter">
               <a>${filter}</a>
               </div>`;
 
           document.querySelector(".prices").innerHTML += filterCheck;
+        });
+      }
+
+      function bindEvent(catgoryLinks, catType) {
+        catgoryLinks.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            filteredList(this.textContent, catType);
+          });
         });
       }
 
